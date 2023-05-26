@@ -1,0 +1,55 @@
+* d:\esim_tut\files\pc\pc.cir
+
+* u10  1 2 3 4 5 6 7 8 net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ adc_bridge_8
+* u11  net-_u11-pad1_ net-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ o1 o2 o3 o4 dac_bridge_4
+v1  1 gnd pulse(5 0 1m 1m 1m 80 160)
+v2  2 gnd pulse(0 0 1m 1m 1m 160 160)
+v3  3 gnd pulse(5 0 1m 1m 1m 100 160)
+v4  4 gnd pulse(0 5 1m 1m 1m 80 160)
+v5  5 gnd pulse(0 0 0 0 0 0 0)
+v6  6 gnd pulse(0 0 0 0 0 0 0)
+v7  7 gnd pulse(0 0 0 0 0 0 0)
+v8  8 gnd pulse(0 0 0 0 0 0 0)
+* u6  3 plot_v1
+* u8  4 plot_v1
+* u9  5 plot_v1
+* u7  6 plot_v1
+* u5  7 plot_v1
+* u2  8 plot_v1
+* u1  1 plot_v1
+* u4  2 plot_v1
+* u13  o3 plot_v1
+* u12  o4 plot_v1
+* u15  o1 plot_v1
+* u14  o2 plot_v1
+* u3  net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ net-_u11-pad1_ net-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ pc
+a1 [1 2 3 4 5 6 7 8 ] [net-_u10-pad9_ net-_u10-pad10_ net-_u10-pad11_ net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ net-_u10-pad16_ ] u10
+a2 [net-_u11-pad1_ net-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ ] [o1 o2 o3 o4 ] u11
+a3 [net-_u10-pad9_ ] [net-_u10-pad10_ ] [net-_u10-pad11_ ] [net-_u10-pad12_ net-_u10-pad13_ net-_u10-pad14_ net-_u10-pad15_ ] [net-_u10-pad16_ ] [net-_u11-pad1_ net-_u11-pad2_ net-_u11-pad3_ net-_u11-pad4_ ] u3
+* Schematic Name:                             adc_bridge_8, NgSpice Name: adc_bridge
+.model u10 adc_bridge(in_low=1.0 in_high=2.0 rise_delay=1.0e-9 fall_delay=1.0e-9 ) 
+* Schematic Name:                             dac_bridge_4, NgSpice Name: dac_bridge
+.model u11 dac_bridge(out_low=0.0 out_high=5.0 out_undef=0.5 input_load=1.0e-12 t_rise=1.0e-9 t_fall=1.0e-9 ) 
+* Schematic Name:                             pc, NgSpice Name: pc
+.model u3 pc(rise_delay=1.0e-9 fall_delay=1.0e-9 input_load=1.0e-12 instance_id=1 ) 
+.tran 0.1e-00 160e-00 0e-00
+
+* Control Statements 
+.control
+run
+print allv > plot_data_v.txt
+print alli > plot_data_i.txt
+plot v(3)
+plot v(4)
+plot v(5)
+plot v(6)
+plot v(7)
+plot v(8)
+plot v(1)
+plot v(2)
+plot v(o3)
+plot v(o4)
+plot v(o1)
+plot v(o2)
+.endc
+.end
