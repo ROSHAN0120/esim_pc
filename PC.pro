@@ -1,6 +1,6 @@
-update=22/05/2015 07:44:53
+update=05/29/23 22:33:04
 version=1
-last_client=kicad
+last_client=eeschema
 [general]
 version=1
 RootSch=
@@ -69,3 +69,13 @@ LibName35=eSim_Sources
 LibName36=eSim_Subckt
 LibName37=eSim_Nghdl
 LibName38=eSim_Ngveri
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=C:/Users/roshan/Desktop/Fellowship/Esim-general/sche_plot/
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceForceRefPrefix=0
+SpiceUseNetNumbers=0
+LabSize=60

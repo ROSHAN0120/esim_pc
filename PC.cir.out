@@ -6,10 +6,10 @@ v1  1 gnd pulse(5 0 1m 1m 1m 80 160)
 v2  2 gnd pulse(0 0 1m 1m 1m 160 160)
 v3  3 gnd pulse(5 0 1m 1m 1m 100 160)
 v4  4 gnd pulse(0 5 1m 1m 1m 80 160)
-v5  5 gnd pulse(0 0 0 0 0 0 0)
-v6  6 gnd pulse(0 0 0 0 0 0 0)
-v7  7 gnd pulse(0 0 0 0 0 0 0)
-v8  8 gnd pulse(0 0 0 0 0 0 0)
+v5  5 gnd pulse(5 0 1m 1m 1m 70 160)
+v6  6 gnd pulse(0 5 1m 1m 1m 150 160)
+v7  7 gnd pulse(0 5 1m 1m 1m 80 160)
+v8  8 gnd pulse(5 0 1m 1m 1m  100 160)
 * u6  3 plot_v1
 * u8  4 plot_v1
 * u9  5 plot_v1
